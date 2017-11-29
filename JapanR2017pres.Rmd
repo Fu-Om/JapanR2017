@@ -1,0 +1,17 @@
+---
+title: "JapanR2017"
+author: '@fuuuumin314'
+date: "2017/12/02"
+output: 
+    beamer_presentation:
+        latex_engine: lualatex
+        toc: true
+        slide_level: 2
+        theme: Rochester
+mainfont: IPAMincho
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
