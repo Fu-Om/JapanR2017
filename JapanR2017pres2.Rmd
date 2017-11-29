@@ -35,4 +35,35 @@ knitr::opts_chunk$set(echo = FALSE)
 - Just finished begginer level
 - More of researcher perspective, not pure programmer
 
-# 
+# Problems
+
+## Many Problems...
+1. What is 01analysis.Rmd?
+1. "It Workes on My PC !"
+1. Don't Want to Use git
+
+# What is 01analysis.Rmd?
+
+## Solutions
+1. Create package: The analysis are functions; Hard
+1. [ProjectTemplate](http://projecttemplate.net/index.html): Load automatically; R specific, configs
+1. [cookiecutter data science](https://drivendata.github.io/cookiecutter-data-science/) + makefile: Most general; python...
+
+# "It Workes on My PC !"
+
+## Solutions
+1. [packrat package](https://rstudio.github.io/packrat/): R Studio GUI! 
+1. [Docker](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image): Relatively technical
+
+# Don't Want to Use git
+
+## Solutions
+1. Create duplicates: DRY 
+1. Easy git by [ropenscilabs/changes](https://github.com/ropenscilabs/changes)
+
+## Remarks
+- Use whatever tools to make your R analysis life easier
+- Thank you @kazutan for making slides in R 
+
+## Enjoy! 
+![logo](img/Rlogo.png)
