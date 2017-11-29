@@ -1,0 +1,38 @@
+---
+title: "How to Enjoy R More !"
+author: '@fuuuumin'
+date: "Japan.R - 2017/12/02"
+output:
+  revealjs::revealjs_presentation:
+    theme: night
+    transition: none
+    self_contained: true
+    css: slides.css
+  beamer_presentation:
+    toc: false
+    incremental: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Intro
+
+## Who am I ?
+
+<div class="column1">
+- Med student
+- fuuuumin @twitter(fuuumin314)
+- 3y of R experience: nexpert
+</div>
+<div class="column2">
+![icon](img/user.jpeg)
+</div>
+
+
+## Expected Audience
+- Just finished begginer level
+- More of researcher perspective, not pure programmer
+
+# 
