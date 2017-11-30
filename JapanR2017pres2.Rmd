@@ -1,5 +1,5 @@
 ---
-title: "How to Enjoy R More !"
+title: "もっとRを楽しむ方法を考える！"
 author: '@fuuuumin'
 date: "Japan.R - 2017/12/02"
 output:
@@ -17,41 +17,44 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Intro
+# イントロ
 
-## Who am I ?
+## だれ？
 
 <div class="column1">
-- Med student
 - fuuuumin @twitter(fuuumin314)
-- 3y of R experience: nexpert
+- R歴 3年
+- 医学部
+- 近況: 国家試験やばい
 </div>
 <div class="column2">
 ![icon](img/user.jpeg)
 </div>
 
 
-## Expected Audience
-- Just finished begginer level
-- More of researcher perspective, not pure programmer
+## だれへのお話？
+- 初心者を脱しようとしている(関数に対して抵抗がない)
+- 非エンジニア向け
 
-# Problems
+# Rで分析するとき以外の問題
 
-## Many Problems...
-1. What is 01analysis.Rmd?
-1. "It Workes on My PC !"
-1. Don't Want to Use git
+## 例えば…… 
+1. 分析結果があちこちに散らばる
+1. "It Workes on My Machine"
+1. git って怖い……
 
-# What is 01analysis.Rmd?
+# 分析結果があちこちに散らばる
 
-## Solutions
+## 解決案
 1. Create package: The analysis are functions; Hard
 1. [ProjectTemplate](http://projecttemplate.net/index.html): Load automatically; R specific, configs
+1. [Rstudio project template](https://rstudio.github.io/rstudio-extensions/rstudio_project_templates.html)
 1. [cookiecutter data science](https://drivendata.github.io/cookiecutter-data-science/) + makefile: Most general; python...
 
 # "It Workes on My PC !"
 
 ## Solutions
+1. Manual package: `devtools::session_info()`
 1. [packrat package](https://rstudio.github.io/packrat/): R Studio GUI! 
 1. [Docker](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image): Relatively technical
 
