@@ -46,7 +46,7 @@ knitr::opts_chunk$set(echo = FALSE)
 # 分析結果があちこちに散らばる
 
 ## 解決案
-1. Create package: The analysis are functions; Hard
+1. パッケージ作成: The analysis are functions; Hard
 1. [ProjectTemplate](http://projecttemplate.net/index.html): Load automatically; R specific, configs
 1. [Rstudio project template](https://rstudio.github.io/rstudio-extensions/rstudio_project_templates.html)
 1. [cookiecutter data science](https://drivendata.github.io/cookiecutter-data-science/) + makefile: Most general; python...
