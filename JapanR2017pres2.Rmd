@@ -14,7 +14,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
 ```
 
 # イントロ
@@ -39,34 +39,104 @@ knitr::opts_chunk$set(echo = FALSE)
 # Rで分析するとき以外の問題
 
 ## 例えば…… 
-1. 分析結果があちこちに散らばる
-1. "It Workes on My Machine"
-1. git って怖い……
+1. 私の環境では動いたよ？
+1. 分析過程の履歴をとりたい
 
-# 分析結果があちこちに散らばる
+# 私の環境では動いたよ？
 
-## 解決案
-1. パッケージ作成: The analysis are functions; Hard
-1. [ProjectTemplate](http://projecttemplate.net/index.html): Load automatically; R specific, configs
-1. [Rstudio project template](https://rstudio.github.io/rstudio-extensions/rstudio_project_templates.html)
-1. [cookiecutter data science](https://drivendata.github.io/cookiecutter-data-science/) + makefile: Most general; python...
+## 解決法
 
-# "It Workes on My PC !"
+1. 手動管理: `devtools::session_info()`
+1. [packrat package](https://rstudio.github.io/packrat/): R Studio で操作可能
+1. [Docker](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image): 今回は割愛. 環境構築に便利そう.
 
-## Solutions
-1. Manual package: `devtools::session_info()`
-1. [packrat package](https://rstudio.github.io/packrat/): R Studio GUI! 
-1. [Docker](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image): Relatively technical
+![ゆのっち](./img/omaenonaka.jpg)
 
-# Don't Want to Use git
+## 手動管理
+- レポートのどこかに記しておく
+- ~~だるい (DRY)~~
 
-## Solutions
-1. Create duplicates: DRY 
-1. Easy git by [ropenscilabs/changes](https://github.com/ropenscilabs/changes)
+## devtoolsを利用して(1)
+```{r, eval=TRUE}
+devtools::session_info()[[1]]
+```
 
-## Remarks
-- Use whatever tools to make your R analysis life easier
-- Thank you @kazutan for making slides in R 
+## devtoolsを利用して(2)
+```{r, eval=TRUE}
+devtools::session_info()[[2]]
+```
+
+## packrat
+- Projectに固有のpackageを構築
+- Rstudioから直接使える
+- CRAN, bioconductor, githubを問わずソースを保存
+- パッケージの状態を共有しやすくする
+
+## 使い方
+- packratを始める
+```{r}
+packrat::init()
+```
+- 現在のパッケージ状態を確認
+```{r}
+packrat::status()
+```
+- 使用しているパッケージを固める
+```{r}
+packrat::snapshot()
+```
+
+## RStudio なら
+- Use packrat in this projectから始められる
+![screenshot](./img/packrat2.jpg)
+
+## 追加資料
+- @dichikaさん [packratで人類の拡大再生産に貢献する](http://d.hatena.ne.jp/dichika/20131220/p1)
+- @uriboさん [packratの使い道を考えてみた](https://qiita.com/uri/items/5d473a5df91954585e62)
+
+# 分析過程の履歴をとりたい
+
+## 自分でVersion Control System
+- 他の人が見たときに分かりづらい
+- もうfinal_analysis_06.Rmdは嫌だ！
+- だが、黒い画面が嫌いな人もいる
+
+## [ropenscilabs/changes](https://github.com/ropenscilabs/changes)
+- gitを非エンジニアに身近に
+- gitの用語より平易
+- インストールは、
+```{r}
+devtools::install_github("ropenscilabs/changes")
+# githubinstall でインストールできませんでした
+```
+
+## 機能
+- バージョンコントロールを始める
+```{r}
+changes::create_repo()
+```
+- 履歴に書き込む
+```{r}
+changes::record()
+```
+- ある変更時点へ飛ぶ
+```{r}
+changes::go_to()
+```
+- 履歴を見る
+```{r, eval=TRUE}
+changes::changes()
+```
+
+## まとめ
+- 分析そのもの以外で楽できる方法を紹介(Packrat, changes)
+- レベルに合わせて、ツールを使ってRで楽をしよう.
+- @kazutanさんの資料のおかげで、このスライドは楽にできました.ありがとう、ぞうさん
 
 ## Enjoy! 
 ![logo](img/Rlogo.png)
+
+## 参考資料
+- [Good enough practices in scientific computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510): どうやったらよりよい統計解析が行えるか.
+- [Data Science is Software | SciPy 2016 Tutorial | Peter Bull & Isaac Slavitt](https://www.youtube.com/watch?v=EKUy0TSLg04&t=6924s&list=LLGHuJ-zAjTfYElCRKIi2KsQ&index=69): データ解析をCS視点で解説.長いがためになる.
+

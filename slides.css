@@ -29,17 +29,24 @@
 }
 
 .level1>h1 {
-  margin-top: 25%;
+  margin-top: 50%;
 }
 span.header-section-number {
   margin-right: 0.5em;
 }
 .reveal li {
+  font-size:1.5em;
   margin-top:0.2em;
 }
 .reveal ul ul li {
-  font-size:5.00em;
+  font-size:15.0em;
   margin-top:0;
+}
+
+/* code fonts */
+.reveal pre code {
+  font-size: 2.0em;
+  line-height: 1.0;
 }
 
 /* image setting */

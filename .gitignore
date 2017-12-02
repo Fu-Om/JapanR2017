@@ -2,4 +2,3 @@ packrat/lib*/
 packrat/src/*
 .Rproj.user
 *.pdf
-*.html
